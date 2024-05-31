@@ -1,0 +1,14 @@
+import random
+
+# Učitavanje učesnika iz fajla
+with open('participants.txt', 'r') as file:
+    participants = file.read().splitlines()
+
+# Nasumično izvlačenje jednog učesnika
+winner = random.choice(participants)
+print(f"The winner is: {winner}")
+
+# Ažuriranje fajla sa preostalim učesnicima
+participants.remove(winner)
+with open('participants.txt', 'w') as file:
+    file.write('\n'.join(participants))
